@@ -17,6 +17,9 @@ defmodule MyEnum do
     end
   end
 
+  @doc """
+  Each transforms each element and returns a list of a transformed elements
+  """
   def each(list, transformation) do
     do_each(list, transformation)
   end
@@ -29,6 +32,9 @@ defmodule MyEnum do
     [transformation.(head) | do_each(tail, transformation)]
   end
 
+  @doc """
+  Filter returns only elements that satisfy the filter rule that is passed as second parameter
+  """
   def filter(list, filter) do
     do_filter(list, filter)
   end
@@ -45,6 +51,9 @@ defmodule MyEnum do
     end
   end
 
+  @doc """
+  Split returns list of two arrays, first containing only the passed number of elements of the initial array
+  """
   def split(list, onElement) do
     #split([[head, h], tail], onElement - 1)
     #[[head, h], tail]
@@ -59,6 +68,9 @@ defmodule MyEnum do
     do_split(tail, onElement-1, [head | firstPart])
   end
 
+  @doc """
+  Take returns passed number of elements of the initial array
+  """
   def take(list, howMany) do
     do_take(list, howMany, [])
   end
@@ -71,6 +83,9 @@ defmodule MyEnum do
     do_take(tail, howMany-1, [head | newList])
   end
 
+  @doc """
+  Reverse is used to reverse the order of array elements
+  """
   def reverse(list) do
     do_reverse(list, [])
   end
@@ -83,6 +98,9 @@ defmodule MyEnum do
     do_reverse(tail, [head | newList])
   end
 
+  @doc """
+  Flatten returns one array that contains all nested elements
+  """
   def flatten([]) do
     []
   end
